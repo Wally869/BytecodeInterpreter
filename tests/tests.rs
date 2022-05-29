@@ -81,7 +81,7 @@ mod interpreter_tests {
     }
 
     #[test]
-    /// test loop: increment a number until reaches target value. Simple impl, does not work if nb_iter = 0
+    /// test loop: increment a number until reaches target value.
     fn test_increment_loop() {
         /*
             // Sample rust code would look like the following
