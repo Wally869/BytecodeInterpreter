@@ -36,16 +36,12 @@ impl Interpreter {
         match identifier {
             Some(id) => {
                 //if identifier exists, modify value
-                if self
+                let pos = self
                     .stack
                     .iter()
-                    .find(|elem| elem.identifier == Some(id))
-                    .is_some()
-                {
-                    self.stack
-                        .iter_mut()
-                        .filter(|elem| elem.identifier == Some(id))
-                        .for_each(|mut elem| elem.value = value);
+                    .position(|elem| elem.identifier == Some(id));
+                if pos.is_some() {
+                    self.stack[pos.unwrap()].value = value;
                 } else {
                     self.stack.push(Variable {
                         identifier: identifier,
